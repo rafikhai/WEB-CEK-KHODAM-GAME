@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Cek Khodam</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Cek Khodam Kamu!</h1>
+        <hr>
+        <div id="result" class="result">
+            <p>Nama: <span style="color: #ff5722; font-weight: bold;" id="result-nama"></span></p>
+            <p>Tanggal Lahir: <span style="color: #ff5722; font-weight: bold;" id="result-tanggal_lahir"></span></p>
+            <p>Wow! Khodam kamu saat ini: <br><span style="color: #ff5722; font-size: 40px; font-style: italic; font-weight: bold;" id="khodam-name"></span></p><br>
+            <button id="btnCobaNamaLain" onclick="window.location.href='../'">Coba Nama Lain</button>
+        </div>
+        <div class="footer">
+            &copy; 2024 Ducking
+        </div>
+    </div>
+    <script>
+        // Mendapatkan parameter dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nama = urlParams.get('nama');
+        const tanggal_lahir = urlParams.get('tanggal_lahir');
+        const khodam_name = urlParams.get('khodam_name');
+
+        // Cek jika parameter ada, jika tidak redirect ke halaman awal
+        if (!nama || !tanggal_lahir || !khodam_name) {
+            window.location.href = '../';
+        } else {
+            // Menampilkan hasil pada halaman
+            document.getElementById('result-nama').textContent = nama;
+            document.getElementById('result-tanggal_lahir').textContent = tanggal_lahir;
+            document.getElementById('khodam-name').textContent = khodam_name;
+        }
+    </script>
+</body>
+</html>
